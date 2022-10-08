@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_postgres__addresses 
+    description: Each unique address on the platform
+
+  - name: stg_postgres__events
+    description: Each unique event on the platform
+  
+  - name: stg_postgres__orders
+    description: Each unique event on the platform
+
+  - name: stg_postgres__order_items 
+    description: Unique products within each unique order
+
+  - name: stg_postgres__products 
+    description: Each unique product on the platform
+
+  - name: stg_postgres__promos 
+    description: Each unique promo code on the platform
+
+  - name: stg_postgres__users 
+    description: Each unique user on the platform

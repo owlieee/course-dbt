@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+
+  - name: postgres 
+    schema: public 
+    database: raw 
+
+    tables:
+      - name: addresses 
+        description: >
+          Each unique address on the platform
+
+      - name: events 
+        description: >
+          Each unique event on the platform
+      
+      - name: orders 
+        description: >
+          Each unique event on the platform
+    
+      - name: order_items 
+        description: >
+          Unique products within each unique order
+
+      - name: products 
+        description: >
+          Each unique product on the platform
+
+      - name: promos 
+        description: >
+          Each unique promo code on the platform
+
+      - name: users 
+        description: >
+          Each unique user on the platform
