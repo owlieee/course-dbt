@@ -8,8 +8,8 @@ renamed as (
 
     select
         product_id,
-        name,
-        price,
+        name as product_name,
+        price as product_cost,
         inventory
     from source
 

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_postgres__order_items 
+    description: Unique products within each unique order
+
+    columns:
+      - name: order_id
+        description: OrderId of this order
+        tests:
+          - not_null
+
+      - name: product_id
+        description: ProductId of a single item in this order
+
+      - name: quantity
+        description: Number of units of the product in this order

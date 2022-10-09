@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_postgres__orders
+    description: Each unique event on the platform
+
+    columns:
+      - name: order_id
+        description: UUID for each unique order on platform
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: UserId of the user that placed this order
+
+      - name: promo_id
+        description: ID of promo if any was used in the order
+
+      - name: address_id
+        description: ID of delivery address for this order
+
+      - name: created_at
+        description: Timestamp when the order was created
+
+      - name: order_cost
+        description: Dollar amount of the items in the order
+
+      - name: shipping_cost
+        description: Cost of shipping for the order
+
+      - name: order_total
+        description: Total cost of the order including shipping
+
+      - name: tracking_id
+        description: Tracking number for the order/package
+
+      - name: shipping_service
+        description: Company that was used for shipping
+
+      - name: estimated_delivered_at
+        description: Estimated date of delivery
+
+      - name: delivered_at
+        description: Actual timestamp of delivery
+
+      - name: order_status
+        description: Status of the order

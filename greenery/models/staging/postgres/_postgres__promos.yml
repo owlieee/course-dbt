@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_postgres__promos 
+    description: Each unique promo code on the platform
+
+    columns:
+      - name: promo_id
+        description: Each unique promocode on platform
+        tests:
+          - unique
+          - not_null
+
+      - name: discount
+        description: Absolute dollar amount that is given off with the code
+
+      - name: promo_status
+        description: Active or disabled

@@ -11,7 +11,7 @@ renamed as (
         session_id,
         user_id,
         page_url,
-        created_at::timestamp as created_at,
+        created_at,
         event_type,
         order_id,
         product_id

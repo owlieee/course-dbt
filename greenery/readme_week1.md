@@ -8,7 +8,7 @@ select
 from stg_postgres__users
 ```
 
-130
+130 distinct users
 
 ### On average, how many orders do we receive per hour?
 
@@ -16,21 +16,23 @@ from stg_postgres__users
 with orders_per_hour as (
     select 
         date_trunc('hour', created_at) as date_hour, 
-        count(*) as c 
+        count(*) as count_orders
     from stg_postgres__orders
     group by 1
     order by 1
 )
 
 select 
-    avg(c) as average_orders,
-    -- data quality check: no 0 order hours in date range
+    avg(count_orders) as average_orders,
+    -- data quality checks: no 0 order hours in date range
     count(distinct date_hour) as total_hours, 
-    datediff('hour', min(date_hour), max(date_hour)) as hours_in_data
+    datediff('hour', min(date_hour), max(date_hour)) as hours_in_data,
+     min(date_hour),
+     max(date_hour)
 from orders_per_hour
 ```
 
-7.5
+With the caveat that we only have 2 complete days of data (2021/2/10-2021-2/11), we receive on average 7.5 orders per hour.
 
 
 ### On average, how long does an order take from being placed to being delivered?
@@ -48,7 +50,7 @@ select
 from customer_wait_days
 ```
 
-Almost 4 days (3.9)
+From the 305 delivered orders between 2021/2/10-2021/2/11, orders are delivered nearly 4 days (3.9) from order date. 
 
 ### How many users have only made one purchase? Two purchases? Three+ purchases?
 
@@ -97,4 +99,5 @@ select
     datediff('hour', min(date_hour), max(date_hour)) as hours_in_data
 from sessions_per_hour
 ```
-16-- big outlier, 240 one hour
+
+Looking at all the data available, we average about 16 sessions per hour. There is one big outlier hour that has 240 sesssions-- unknown business context, but it does skew the average high, especially with only 58 hours of data represented. 
