@@ -27,8 +27,8 @@ select
     -- data quality checks: no 0 order hours in date range
     count(distinct date_hour) as total_hours, 
     datediff('hour', min(date_hour), max(date_hour)) as hours_in_data,
-     min(date_hour),
-     max(date_hour)
+    min(date_hour),
+    max(date_hour)
 from orders_per_hour
 ```
 
@@ -76,9 +76,9 @@ from orders_per_user
 group by 1
 ```
 
-1: 25 users
-2: 28 users
-3+: 71 users
+- 1: 25 users
+- 2: 28 users
+- 3+: 71 users
 
 ### On average, how many unique sessions do we have per hour?
 
@@ -86,14 +86,14 @@ group by 1
 with sessions_per_hour as (
     select 
         date_trunc('hour', created_at) as date_hour, 
-        count(distinct session_id) as c 
+        count(distinct session_id) as count_sessions 
     from stg_postgres__events
     group by 1
     order by 1
 )
 
 select 
-    avg(c) as average_sessions,
+    avg(count_sessions) as average_sessions,
     -- data quality check: no 0 order hours in date range
     count(distinct date_hour) as total_hours, 
     datediff('hour', min(date_hour), max(date_hour)) as hours_in_data

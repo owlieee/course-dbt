@@ -1,10 +1,17 @@
-Welcome to your new dbt project!
+# Greenery Data!
+We deliver flowers and houseplants. This repository will contain the business logic we use to understand the state of the business and determine where how we can improve to grow revenue and acquire new customers. 
 
-### Using the starter project
+### Raw data
+Raw data is stored in postgres. The source schemas are defined in `models/staging/postgres/_postgres__sources.yml`.
 
-Try running the following commands:
-- dbt run
-- dbt test
+### Staging data 
+Raw data is processed into staging tables that use business terminology in `models/staging`. 
+
+### Marts data
+Business logic will be defined in `models/marts`!
+
+### Snapshots
+We use snapshots to track changes of certain tables over time.
 
 
 ### Resources:
