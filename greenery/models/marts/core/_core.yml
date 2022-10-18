@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: One row per user, including extra details about the user
+
+    columns:
+      - name: user_id
+        description: UUID for each unique user 
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: One row per product, including extra details about the product
+
+    columns:
+      - name: product_id
+        description: UUID for each unique product 
+        tests:
+          - unique
+          - not_null
+
+
+  - name: fct_orders
+    description: One row per order, including extra details about the order
+
+    columns:
+      - name: order_id
+        description: UUID for each unique order 
+        tests:
+          - unique
+          - not_null

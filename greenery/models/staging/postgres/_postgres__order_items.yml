@@ -5,6 +5,12 @@ models:
     description: Unique products within each unique order
 
     columns:
+      - name: order_item_id
+        description: Unique identifier, concat(order id, product id)
+        tests:
+          - not_null
+          - unique
+
       - name: order_id
         description: OrderId of this order
         tests:
@@ -12,6 +18,8 @@ models:
 
       - name: product_id
         description: ProductId of a single item in this order
-
+        tests:
+          - not_null
+          
       - name: quantity
         description: Number of units of the product in this order

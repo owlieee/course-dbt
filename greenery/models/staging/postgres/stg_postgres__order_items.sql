@@ -7,6 +7,7 @@ with source as (
 renamed as (
 
     select
+        concat(order_id, product_id) as order_item_id,
         order_id,
         product_id,
         quantity

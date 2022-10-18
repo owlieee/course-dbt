@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_order_details
+    description: One row per order, including extra details and aggregates about the order
+
+    columns:
+      - name: order_id
+        description: UUID for each unique order 
+        tests:
+          - unique
+          - not_null
+
+  - name: int_order_item_details
+    description: One row per product ordered, including detail about the entire order 
+
+    columns:
+      - name: order_item_id
+        description: UUID for each unique product in each unique order
+        tests:
+          - unique
+          - not_null
+
+  - name: int_events
+    description: One row per event
+
+    columns:
+      - name: event_id
+        description: UUID for each unique event 
+        tests:
+          - unique
+          - not_null

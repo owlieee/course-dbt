@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fct_checkout_session_events
+    description: One row per event, for sessions that include a checkout event
+
+    columns:
+      - name: event_id
+        description: UUID for each unique event 
+        tests:
+          - unique
+          - not_null

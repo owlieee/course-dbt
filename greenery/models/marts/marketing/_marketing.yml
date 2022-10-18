@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_promo_usage
+    description: One row per promo id with usage and status information
+
+    columns:
+      - name: promo_id
+        description: UUID for each unique promo 
+        tests:
+          - unique
+          - not_null
